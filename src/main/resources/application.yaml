@@ -1,0 +1,30 @@
+server:
+  port: 8112
+spring:
+  application:    name: jonatan
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      
+logging:  level:    org.springframework.web: DEBUG
+    com.practicas.jonatan.controller: DEBUG
+    org.hibernate: DEBUG
+---
+spring:
+  profiles: test
+rest:
+  url:
+    base: http://localhost:8112/user/
+    login: login?id=
+    country: country
+    create: create
+    delete: delete/
+---
+spring:  profiles: default  datasource:
+    platform: mysql
+    url: jdbc:mysql://sql161.main-hosting.eu:3306/u556638817_u556638817_dat
+    username: u556638817_prueba
+    password: Prueba12345
+    driverClassName: com.mysql.cj.jdbc.Driver
